@@ -1,38 +1,131 @@
-.App {
-  text-align: center;
-}
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+body{
+  background-color: black;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.barra{
+  display: grid;
+  grid-template-columns: 1fr 4fr 1fr ;
+  color: rgb(235, 224, 224);
+  justify-content: space-between;
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  margin: 2% 5% ;
+  padding: 1%;
+  flex-wrap: wrap;
+  border: #b12b2b;
+  border-radius: 50%;
+}
+
+.Card{
+margin: 10px;
+}
+
+.carta .carta-dorso,
+.carta .carta-frente{
+  width: 100px;
+  height: 100px;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+.carta-holder, .carta{
+  width: 100px;
+  height: 100px;
+}
+.carta-holder{
+perspective: 100px;
+}
+
+.carta{
+  position: relative;
+ transform-style: preserve-3d;
+ transition : transform 1s linear;
+ border-radius: 10%;
+ /* margin: 5px 5px; */
+
+}
+
+.carta .carta-dorso{
+  background-color: rgb(50, 53, 82);
+}
+.carta .carta-dorso{
+  position: absolute;
+
+}
+.carta .carta-frente{
+   background-color: chartreuse;
+   top: 0;
+   transform: rotateY(180deg);
+}
+.carta-dorso{
+  position: absolute;
+
+}
+.carta-frente{
+  position: absolute;
+}
+.carta-holder:hover .carta{
+  transform: rotateY(180deg);
+}
+
+.container5 {
+  /* display: flex; */
+  display: grid;
+  grid-template-columns: 100px 100px 100px 100px 100px 100px 100px 100px;
+  grid-template-rows: 100px 100px 100px 100px 100px 100px 100px 100px;
+  justify-content:space-around;
+  margin: 2% 5% ;
+  padding: 1%;
+  flex-wrap: wrap;
+  border: #141414;
+  border-radius: 50%;
+}
+
+div:focus{
+  outline: none !important;
+}
+.main{
+
+  width: 600px;
+  margin: auto;
+  padding: 5%;
+}
+.memotec{
+  background-color: black;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-.App-link {
-  color: #61dafb;
+header{
+  height: 50px;
+  border:1px solid black;
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-content: center;
+}
+.titulo{
+font-size:25px;
+padding: 10px;
+color: white;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.barra-botton{
+  background-color: rgb(169, 169, 175);
+border-radius: 10px;
+top: 1158px;
+width:220px;
+height: 40px;
+font-size:25px;
+/* left: 12px; */
 }
+
+.tablero{
+  background-color: darkcyan;
+  justify-content: space-around;
+  display: flex;
+  flex-wrap: wrap;
+  width: 800px;
+  height: 600px;
+  margin: 2% 5% ;
+  padding: 1%;
+}
+
