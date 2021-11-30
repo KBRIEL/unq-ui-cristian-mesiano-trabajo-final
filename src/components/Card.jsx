@@ -1,26 +1,30 @@
 import '../App.css';
-import unq from  '../images/unq.png';
-import note2 from '../images/note2.png';
+import React from 'react';
+import unq from  '../images/unq.png';//editar
+
 
 
 
 const Card=(props)=>{
-return(
-    <div className="carta-holder">
+    var obj= props.obj;
     
-    <div className="main">
+return(
+    <div>
+        <div className="carta-holder">
+         <div className="main">
         <div className="carta">
             <div className="carta-dorso">
-                <img src={unq}width='100%'/>
+                <img src={unq} className='img'/>
             </div>
             <div className="carta-frente">
-                <img src={note2} width='70%' />
+                <img src={obj.image}className='img' />
             </div>
         </div>
-    
     </div>
-</div>
-);
+    </div>
+
+    </div>
+    );
 }
 
 export default Card;

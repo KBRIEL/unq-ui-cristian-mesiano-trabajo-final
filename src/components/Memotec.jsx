@@ -1,7 +1,7 @@
 import '../App.css';
 import Tablero from './Tablero';
 import Barra from './Barra';
-import React,{useEffect,useState} from 'react';
+import React from 'react';
 
 
 
