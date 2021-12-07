@@ -1,6 +1,7 @@
 
 body{
   background-color: black;
+  color: aliceblue;
 }
 .barra{
   display: grid;
@@ -15,10 +16,12 @@ body{
   border-radius: 50%;
 }
 
+/* cartas */
+
 .Card{
 margin: 10px;
 }
-
+ 
 .carta .carta-dorso,
 .carta .carta-frente{
   width: 100px;
@@ -36,6 +39,7 @@ margin: 10px;
 }
 .carta-holder{
 perspective: 100px;
+cursor: pointer;
 }
 
 .carta{
@@ -43,7 +47,7 @@ perspective: 100px;
  transform-style: preserve-3d;
  transition : transform 1s linear;
  border-radius: 10%;
- /* margin: 5px 5px; */
+ 
 
 }
 
@@ -55,19 +59,118 @@ perspective: 100px;
 
 }
 .carta .carta-frente{
-   background-color: chartreuse;
-   top: 0;
-   transform: rotateY(180deg);
+   background-color: rgb(211, 205, 121);
+   
+   /* top: 0; */
+   /* transform: rotateY(180deg); */
 }
 .carta-dorso{
   position: absolute;
 
 }
+
+  .carta .carta-dorso :hover{
+   /* transform: rotateY(180deg);*/
+   transform: scale(0.95); 
+} 
 .carta-frente{
+ 
   position: absolute;
 }
-.carta-holder:hover .carta{
+ .carta-holder:hover .Card{
   transform: rotateY(180deg);
+} 
+
+
+/* ---------------------------------------------- */
+/*
+.cards {
+  display: grid;
+  grid-template: repeat(3, 1fr) / repeat(3, 1fr);
+  gap: 10px;
+}
+
+.carta-holder{
+  height: 150px;
+  width: 150px;
+  border-radius: 2px;
+  background: #000;
+  cursor: pointer;
+  background: none;
+  border: none;
+  outline: none;
+}
+
+.carta-holder.carta .main {
+  transform: rotateY(180deg);
+}
+
+.main {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transition: 0.6s cubic-bezier(0.38, 0.02, 0.09, 1.66) all;
+}
+
+.carta-holder .carta-frente,
+.carta-holder .carta-dorso {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  backface-visibility: hidden;
+}
+
+.carta-holder .carta-frente {
+  background: #fff;
+  transform: rotateY(180deg);
+}
+
+.carta-holder.carta-dorso {
+  background: #51dce0;
+  color: #d6aeb5;
+  font-size: 100px;
+  transition: 0.3s ease all;
+}
+
+.carta-holder .carta-dorso:hover {
+  background: #dba8b1;
+  color: #fff;
+  transform: scale(1.02);
+}
+*/
+/*---------------------------------------*/
+.Button-container {
+  /* display: flex; */
+  display: grid;
+  grid-template-columns:    120px 120px 120px;
+  
+
+  justify-content:center;
+  margin: 2% 5% ;
+  padding: 1%;
+  flex-wrap: wrap;
+  border: #141414;
+  border-radius: 50%;
+}
+
+.container4 {
+  /* display: flex; */
+  display: grid;
+  grid-template-columns:   100px 100px 100px 100px;
+  grid-template-rows:  100px 100px 100px 100px;
+  justify-content:space-around;
+  margin: 2% 5% ;
+  padding: 1%;
+  flex-wrap: wrap;
+  border: #141414;
+  border-radius: 50%;
 }
 
 .container5 {
@@ -82,18 +185,34 @@ perspective: 100px;
   border: #141414;
   border-radius: 50%;
 }
+.container6 {
+  /* display: flex; */
+  display: grid;
+  grid-template-columns:  100px 100px 100px 100px 100px 100px;
+  grid-template-rows:  100px 100px 100px 100px 100px 100px;
+  justify-content:space-around;
+  margin: 2% 5% ;
+  padding: 1%;
+  flex-wrap: wrap;
+  border: #141414;
+  border-radius: 50%;
+}
 
 div:focus{
   outline: none !important;
 }
 
+.centrar{
+  color: #d6eb17;
+  justify-content: center;
+}
 .img{
   width: 90%;
 border-radius: 15%;
 }
 .main{
 
-  width: 600px;
+  width: 100px;
   margin: auto;
   padding: 5%;
 }
@@ -126,16 +245,37 @@ font-size:25px;
 /* left: 12px; */
 }
 
+.barra-botton2{
+  background-color: rgb(169, 169, 175);
+  color: #131010;
+  justify-content: center;
+border-radius: 10px;
+margin: 15px;
+top: 1158px;
+width:220px;
+height: 40px;
+font-size:25px;
+box-shadow: aliceblue;
+
+}
+
+.barra-botton2:active{
+  transform: scale(0.97);
+}
+
 .tablero{
+  display: grid;
+  grid-template-rows:  100px 100px 1;
   background-color: darkcyan;
-  justify-content: space-around;
-  display: flex;
-  flex-wrap: wrap;
-  width: 820px;
-  height: 850px;
+  justify-content: center;
+  
+  width: auto ;
+  height: auto;
   margin: 2% 5% ;
   padding: 1%;
 }
+
+
 
 
 

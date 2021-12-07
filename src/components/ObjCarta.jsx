@@ -1,7 +1,5 @@
-import React from "react";
+
 import '../App.css';
-import unq from  '../images/unq.png';//editar
-import note2 from '../images/note2.png';
 import flash from '../images/flash.png';
 import superman from '../images/superman.png';
 import batman from '../images/batman.png';
@@ -36,18 +34,18 @@ import dr from '../images/dr.png';
 import thanos from '../images/thanos.png';
 
 
-const datos =()=>{
+const cartas =()=>{
     return [
         {
             'image':flash,
-            'index':0,
-            'position':0,
+            'index':32,
+            'position':64,
             'flip':false
         },
         {
             'image':flash,
-            'index':0,
-            'position':1,
+            'index':32,
+            'position':65,
             'flip':false
         },
         {
@@ -426,4 +424,37 @@ const datos =()=>{
 
 }
 
-export default {datos};
+const datos=()=>{
+    return cartas().sort(function(){return Math.random() -0.5});
+}
+
+const tableroSeis=()=>{
+    
+    return datos().filter(e=>e.position<38);
+}
+
+const tableroCuatro=()=>{
+    return datos().filter(e=>e.position<18);
+}
+
+const reset=()=>{
+    return cartas().map(e=>e.flip=false);
+}
+
+const cambiarFlipATrue =(id)=>{
+return cartas().map(e=>{if(e.position==id){e.flip=true}})
+}
+
+const cambiarFlipAFalse =(id)=>{
+    return cartas().map(e=>{if(e.position==id){e.flip=false}})
+    }
+
+const cantCartasTrue=()=>{
+    return (cartas().filter(e=>e.flip==true)).length
+}
+
+const sonTodasTrue=()=>{
+    return !cartas().some(e=>e.flip==false)
+}
+
+export default {datos, reset,tableroSeis, tableroCuatro, cartas,cantCartasTrue,sonTodasTrue,cambiarFlipATrue, cambiarFlipAFalse};

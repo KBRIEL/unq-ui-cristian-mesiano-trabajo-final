@@ -1,7 +1,7 @@
 import './App.css';
-import React,{useState, useEffect } from 'react';
+import React from 'react';
 import Memotec from './components/Memotec';
-import Card from './components/Card';
+
 
 const App=()=> {
   

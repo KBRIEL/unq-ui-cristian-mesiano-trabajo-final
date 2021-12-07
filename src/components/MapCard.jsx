@@ -1,38 +1,178 @@
 import React,{useEffect,useState} from 'react';
 import Card from './Card';
-import ObjCarta,{datos} from './ObjCarta';
+import ObjCarta from './ObjCarta';
+import Tools from './Tools';
 
 
 
-const MapCard=()=>{
+const MapCard=(props)=>{
+   
+    const [cartas, setCartas] = useState([]);
+    const [primerEleccion, setPrimerEleccion] = useState({});
+    const [segundaEleccion, setSegundaEleccion] = useState({});
+    const puntos = props.puntos;
+    const [cartasSinGirar, setcartasSinGirar] = useState([]);
+    const [cartasDeshabilitadas, setcartasDeshabilitadas] = useState([]);
+    const [css, setCss] = useState('container4 col-xs-6 col-md-4');
+    const[descubiertas,setDescubiertas]=useState(0);
+    const[estaEnJugo,setEnJuego]=useState(false);
+    const [bool,setBool]=useState(true);
+    const[estadoDelJuego, setEstadoDelJuego]=useState('');
+    var record=props.record;
+    var setRecord=props.setRecord;
+    var nro=props.nro;
+    var resetPuntos=props.resetPuntos;
+
+
+ 
     
-    var [cartasIniciales,setCartasI]=useState([]);
-    var [cartasFinales,setCartasF]=useState([]);
-    const [state,setState]=useState(<h1>no hay tablero</h1>)
+  
+    useEffect(() => {
+      
+      cuatro();
+      
+   
+    }, [])
+  
+    useEffect(() => {
+      ganar();
+     coinciden();
+    }, [segundaEleccion]);
+  
 
-    const cargarDatos=()=>{
-        setCartasI(ObjCarta.datos);
-        {cartasIniciales.length!=0? setState(cartasIniciales.map(element=><Card className='Card' obj={element}/>)):setState(<h1>no hay tablero</h1>)}
+    
+
+    const agregarDescubierta=()=>{
+      setDescubiertas(descubiertas+1)
+      setEnJuego(true);
+      
     }
 
+    const soyRecord=()=>{
+      if(record=='x'|| record>nro){
+          setRecord(nro);
+      }
+    }
+    const ganar=()=>{
+     
+      if(cartas.length===(descubiertas*2) && cartas.length>0){
+        soyRecord();
+        setEstadoDelJuego('Fin del Juego...');
+        setTimeout(()=>{setEstadoDelJuego('Fin del Juego: vuelva a jugar la partida o inicie un nuevo juego')},2000);
+        // alert('fin del juego')
+      }
+     
+    }
+
+
+
+    const girar = (name, number) => {
+      if (primerEleccion.name === name && primerEleccion.number === number) {
+        return 0;
+      }
+      if (!primerEleccion.name) {
+        setPrimerEleccion({ name, number });
+      }
+      else if (!segundaEleccion.name) {
+        setSegundaEleccion({ name, number });
+      }
+      return 1;
+    }
+
+
+
+
+   const reset = () => {
+        puntos();
+      setPrimerEleccion({});
+      setSegundaEleccion({});
+    }
+
+    const coinciden = () => {
+      if (primerEleccion.name && segundaEleccion.name) {
+        const match = primerEleccion.name === segundaEleccion.name;
+        match ? deshabilitar() : habilitar();
+        puntos();
+        ganar();
+      }
+      
+    }
+    
+    
    
- 
+    const deshabilitar=()=>{
+     
+      Tools.deshabilitarCartas(primerEleccion,segundaEleccion,setcartasDeshabilitadas);
+      agregarDescubierta();
+      reset();
+      
+    }
+    
+  
+    const habilitar=()=>{
+      Tools.habilitar(primerEleccion,segundaEleccion,setcartasSinGirar);
+      reset();
+    }
 
-    useEffect(() => {
-        cargarDatos();
+    const cuatro=()=>{
+      if(!estaEnJugo){
+        resetPuntos();
+        setCss('container4 col-xs-6 col-md-4');
+      setCartas(ObjCarta.tableroCuatro)
+      }
+      
+    }
 
-    }, [])
+    const seis=()=>{
+      if(!estaEnJugo){
+        resetPuntos();
+      setCss('container6 col-xs-2 col-md-2');
+      setCartas(ObjCarta.tableroSeis)
+      }
+    }
 
+    const ocho=()=>{
+      if(!estaEnJugo){
+        resetPuntos();
+      setCss('container5 col-xs-8 col-md-4');
+      setCartas(ObjCarta.datos)
+      }
+    }
+  
+
+    const reiniciar=()=>{
+      setEstadoDelJuego('');
+      setcartasDeshabilitadas([]);
+      setDescubiertas(0)
+      resetPuntos();
+      setBool(false);
+      setTimeout(()=>{setBool(true)},100);
+    }
+   
+    
+     
+  
     return (
-
-        <div className='container5'>
-           
-            {cartasIniciales.map(element=><Card className='Card' obj={element}/>)}
-            
-            
+      <div className='app'>
+        <div className="button-container">
+            <button className='barra-botton' onClick={cuatro}>4x4</button>
+            <button className='barra-botton' onClick={seis}>6x6</button>
+            <button className='barra-botton' onClick={ocho}>8x8</button>
+            <button className='barra-botton' onClick={reiniciar}>Reiniciar Partida</button>
         </div>
+        <div >
+          <h2 className='centrar'>{estadoDelJuego}</h2>
+        </div>
+        <div className={css} >
+          {bool &&
+            cartas.map(carta => (
+              <Card  index={carta.index} position={carta.position} image={carta.image}
+                girar={girar} cartasSinGirar={cartasSinGirar} cartasDeshabilitadas={cartasDeshabilitadas}/>
+            ))
+          }
+        </div>
+      </div>
     );
-
-}
+    }
 
 export default MapCard;
