@@ -1,0 +1,221 @@
+
+body{
+  background-color: black;
+  color: aliceblue;
+}
+.barra{
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr ;
+  color: rgb(235, 224, 224);
+  justify-content: space-between;
+  display: flex;
+  margin: 2% 5% ;
+  padding: 1%;
+  flex-wrap: wrap;
+  border: #b12b2b;
+  border-radius: 50%;
+}
+
+/* cartas */
+
+.Card{
+margin: 10px;
+}
+ 
+/* .carta .carta-dorso,
+.carta .carta-frente{
+  width: 100px;
+  height: 100px;
+  border-radius: 15%;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  
+
+} */
+.carta-holder, .carta{
+  width: 100px;
+  height: 100px;
+}
+.carta-holder{
+perspective: 100px;
+cursor: pointer;
+}
+
+.carta{
+  position: relative;
+ transform-style: preserve-3d;
+ transition : transform 1s linear;
+ border-radius: 10%;
+ 
+
+}
+
+.carta .carta-dorso{
+  background-color: rgb(50, 53, 82);
+}
+.carta .carta-dorso{
+  position: absolute;
+
+}
+.carta .carta-frente{
+   background-color: rgb(211, 205, 121);
+}
+.carta-dorso{
+  position: absolute;
+
+}
+
+  
+
+  .carta .carta-dorso :hover{
+   transform: scale(0.95); 
+} 
+.carta-frente{
+ background-color: rgb(0, 97, 97);
+ box-shadow: 2px rgb(109, 109, 109);
+ border-radius: 15%;
+  position: absolute;
+}
+ .carta-holder:hover .Card{
+  transform: rotateY(180deg);
+} 
+
+
+
+/*---------------------------------------*/
+.Button-container {
+  display: grid;
+  grid-template-columns:    200px 200px 200px 400px;
+  justify-content:space-between;
+  margin: 2% 5% ;
+  padding: 1%;
+  /* flex-wrap: wrap; */
+  border: #141414;
+  border-radius: 50%;
+}
+
+.container4 {
+  display: grid;
+  grid-template-columns:   100px 100px 100px 100px;
+  grid-template-rows:  100px 100px 100px 100px;
+  justify-content:space-around;
+  margin: 2% 5% ;
+  padding: 1%;
+  flex-wrap: wrap;
+  border: #141414;
+  border-radius: 50%;
+}
+
+.container5 {
+  display: grid;
+  grid-template-columns: 100px 100px 100px 100px 100px 100px 100px 100px;
+  grid-template-rows: 100px 100px 100px 100px 100px 100px 100px 100px;
+  justify-content:space-around;
+  margin: 2% 5% ;
+  padding: 1%;
+  flex-wrap: wrap;
+  border: #141414;
+  border-radius: 50%;
+}
+.container6 {
+  display: grid;
+  grid-template-columns:  100px 100px 100px 100px 100px 100px;
+  grid-template-rows:  100px 100px 100px 100px 100px 100px;
+  justify-content:space-around;
+  margin: 2% 5% ;
+  padding: 1%;
+  flex-wrap: wrap;
+  border: #141414;
+  border-radius: 50%;
+}
+
+div:focus{
+  outline: none !important;
+}
+
+.centrar{
+  color: #d6eb17;
+  justify-content: center;
+}
+.img{
+  width: 90%;
+border-radius: 15%;
+}
+.main{
+
+  width: 30%;
+  margin: auto;
+  padding: 5%;
+  
+}
+.memotec{
+  background-color: black;
+  justify-content: center;
+}
+
+header{
+  height: 50px;
+  border:1px solid black;
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-content: center;
+}
+.titulo{
+font-size:25px;
+padding: 10px;
+color: white;
+}
+
+.barra-botton{
+background-color: rgb(169, 169, 175);
+border-radius: 10px;
+top: 158px;
+width:120px;
+height: 40px;
+font-size:25px;
+margin: 0 auto;
+
+}
+
+.barra-botton2{
+  background-color: rgb(169, 169, 175);
+  color: #131010;
+  justify-content: center;
+border-radius: 10px;
+margin: 15px;
+top: 1158px;
+width:220px;
+height: 40px;
+font-size:25px;
+box-shadow: aliceblue;
+
+}
+
+.barra-botton2:active{
+  transform: scale(0.97);
+}
+
+.tablero{
+  display: grid;
+  grid-template-rows:  100px 100px 1;
+  background-color: darkcyan;
+  justify-content: center;
+  
+  width: 100% ;
+  height: auto;
+  margin: 2% 5% ;
+  padding: 1%;
+}
+
+@media (max-width: 600px) { 
+
+ }
+ 
+@media (max-width: 800px) { 
+  
+ }
+
+
+
