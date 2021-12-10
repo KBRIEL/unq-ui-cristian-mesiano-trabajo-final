@@ -9,7 +9,8 @@ MEMOTEST
 - Abrir la terminal
 
 - escribir : 
-       npm install + ENTER
+
+       npm install    + ENTER
 
 - una vez instalado ejecutar el comando :
 
